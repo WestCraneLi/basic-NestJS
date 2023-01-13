@@ -7,12 +7,41 @@ import {
   Query,
   Param,
   Headers,
+  Inject,
 } from '@nestjs/common';
 import { GirlService } from './girl.service';
 
 @Controller('Girl')
 export class GirlController {
-  constructor(private girlService: GirlService) {}
+  // constructor(private girlService: GirlService) {}
+
+  // constructor(@Inject('girl') private girlService:GirlService){} //注入
+  constructor(
+    @Inject('girl') private girlService: GirlService,
+    @Inject('GirlArray') private girls: string[],
+    @Inject('MyFactory') private myFactory: string,
+    @Inject('Config') private shopName: string,
+  ) {}
+
+  // 依赖注入
+  @Get('/testInject')
+  testInject(): string[] {
+    return this.girls;
+  }
+
+  // 工厂
+  @Get('/testFactory')
+  testFactory(): string[] {
+    console.log(this.myFactory);
+    return this.girls;
+  }
+
+  // 全局模块测试
+  @Get('/testModule')
+  testModule(): string {
+    return this.shopName;
+  }
+
   @Get()
   getGirls(): any {
     return this.girlService.getGirls();
@@ -111,5 +140,11 @@ export class GirlController {
   @Get('/hotLoad')
   hotLoad(): any {
     return 'HotLoad Function';
+  }
+
+  // 跨域测试
+  @Get('/corstest')
+  corsTest(): object {
+    return { message: '测试跨域请求成功' };
   }
 }

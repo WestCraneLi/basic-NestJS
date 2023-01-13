@@ -2,11 +2,13 @@ import { Module } from '@nestjs/common';
 import { GirlModule } from './girl/girl.module';
 import { TestModule } from './test/test.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from './config/config.module'; //全局模块
 
 @Module({
   imports: [
     GirlModule,
     TestModule,
+    ConfigModule,
     TypeOrmModule.forRoot({
       type: 'mysql', // 数据库类型
       host: 'localhost', // 数据库的连接地址host

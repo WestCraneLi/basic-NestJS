@@ -24,9 +24,9 @@ $ npm run start:prod
 $ npm run start:dev-hmr
 ```
 
-## 参考
-* [NestJS 快速入门教程](https://jspang.com/article/87)
-* [NestJS中文文档](https://www.nestjs.com.cn/)
+## 注意
+项目运行需要数据库的链接
+
 
 ## 详情
 * api请求工具可以使用postman或者apifox，用来查看Post返回结果
@@ -36,5 +36,10 @@ $ npm run start:dev-hmr
 * ```controller```用来获取页面传来的数据（get|post)，然后通过```body```或```query```或```param```处理数据，将参数传递给```service```
 * ```entities```，实体可以一个数据表的类
 * ```module```层，加载模块
+
+## 参考
+* [NestJS 快速入门教程](https://jspang.com/article/87)
+* [NestJS中文文档](https://www.nestjs.com.cn/)
+
 
 未完待续...
