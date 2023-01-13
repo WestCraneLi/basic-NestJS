@@ -106,4 +106,10 @@ export class GirlController {
   getGirlByName(@Body() body): any {
     return this.girlService.getGirlByName(body.name);
   }
+
+  // 热重载
+  @Get('/hotLoad')
+  hotLoad(): any {
+    return 'HotLoad Function';
+  }
 }

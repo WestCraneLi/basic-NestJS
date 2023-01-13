@@ -19,6 +19,9 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+# hmr mode
+$ npm run start:dev-hmr
 ```
 
 ## 参考
